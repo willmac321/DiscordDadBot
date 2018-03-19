@@ -22,20 +22,20 @@ bot.on('ready', function (evt) {
 });
 bot.on('message', function (user, userID, channelID, message, evt) {
     if (message.toLowerCase().indexOf("i'm ")>-1 && user!="dadBot") {
-		//Classic Dad
-		var i=message.toLowerCase().indexOf("i'm ");
+	//Classic Dad
+	var i=message.toLowerCase().indexOf("i'm ");
         var myStr=(message.substring(i));
-		myStr=myStr.split(" ").slice(1,2);
-		//Debug bot.sendMessage({to:channelID, message:i});
+	myStr=myStr.split(" ").slice(1,2);
+	//Debug bot.sendMessage({to:channelID, message:i});
         bot.sendMessage({to:channelID, message:"Hi " + myStr + ", I'm dadBot!  Pleased to meat you, snot a problem!"});
       }
-	 else if(message.indexOf("!Dad Joke")>-1 && user!="dadBot"){
-		 //Get a random dad joke
-		 min=0;
-		 max=selectDadJoke.length-1;
-		 randInt= Math.floor(Math.random()* (max - min)) + min;
-		 bot.sendMessage({to:channelID, message:selectDadJoke[randInt]});
-	 }  
+      else if(message.indexOf("!Dad Joke")>-1 && user!="dadBot"){
+	 //Get a random dad joke
+	 min=0;
+	 max=selectDadJoke.length-1;
+	 randInt= Math.floor(Math.random()* (max - min)) + min;
+	 bot.sendMessage({to:channelID, message:selectDadJoke[randInt]});
+      }  
 });
 
 
