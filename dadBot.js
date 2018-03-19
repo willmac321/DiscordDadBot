@@ -29,7 +29,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 	 else if(message.indexOf("!Dad Joke")>-1 && user!="dadBot"){
 		 //Get a random dad joke
 		 min=0;
-		 max=Math.floor(selectDadJoke.length);
+		 max=selectDadJoke.length-1;
 		 randInt= Math.floor(Math.random()* (max - min)) + min;
 		 bot.sendMessage({to:channelID, message:selectDadJoke[randInt]});
 	 }  
