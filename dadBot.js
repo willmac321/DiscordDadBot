@@ -36,6 +36,9 @@ bot.on('message', function (user, userID, channelID, message, evt) {
 	 randInt= Math.floor(Math.random()* (max - min)) + min;
 	 bot.sendMessage({to:channelID, message:selectDadJoke[randInt]});
       }  
+	  else if(message.indexOf("dadBot")>-1 && user!="dadBot"){
+		  bot.sendMessage({to:channelID, message:"Beeperuski Boperino I am the grand Dadbot-totino!  Your fish is my command..."});
+	  }
 });
 
 
