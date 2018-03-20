@@ -24,20 +24,32 @@ bot.on('message', function (user, userID, channelID, message, evt) {
     if (message.toLowerCase().indexOf("i'm ")>-1 && user!="dadBot") {
 	//Classic Dad
 	var i=message.toLowerCase().indexOf("i'm ");
-        var myStr=(message.substring(i));
-	myStr=myStr.split(" ").slice(1,2);
+        var myStr=(message.substring(i)).split(" ");
+		var tStri=myStr[1];
+		var test = tStri.toLowerCase();
+		//bot.sendMessage({to:channelID, message:tStri});
+		var str = ""
+		if ((test)=="a" || (test)=="the" || (test)=="an"){
+			//bot.sendMessage({to:channelID, message:tStri+"1"});
+			str=myStr[2];
+		}
+		else{
+			str=tStri;
+			//bot.sendMessage({to:channelID, message:tStri+"2"});
+		}
+		
 	//Debug bot.sendMessage({to:channelID, message:i});
-        bot.sendMessage({to:channelID, message:"Hi " + myStr + ", I'm dadBot!  Pleased to meat you, snot a problem!"});
+        bot.sendMessage({to:channelID, message:"Hi " + str + ", I'm dadBot!  Pleased to meat you, snot a problem!"});
       }
-      else if(message.indexOf("!Dad Joke")>-1 && user!="dadBot"){
+      else if(message.toLowerCase().indexOf("!dad joke")>-1 && user!="dadBot"){
 	 //Get a random dad joke
 	 min=0;
 	 max=selectDadJoke.length-1;
 	 randInt= Math.floor(Math.random()* (max - min)) + min;
 	 bot.sendMessage({to:channelID, message:selectDadJoke[randInt]});
       }  
-	  else if(message.indexOf("dadBot")>-1 && user!="dadBot"){
-		  bot.sendMessage({to:channelID, message:"Beeperuski Boperino I am the grand Dadbot-totino!  Your fish is my command..."});
+	  else if(message.toLowerCase().indexOf("dadbot")>-1 && user!="dadBot"){
+		  bot.sendMessage({to:channelID, message:"Beeperuski Booperino I am the grand Dadbototino!  Your fish is my command..."});
 	  }
 });
 
